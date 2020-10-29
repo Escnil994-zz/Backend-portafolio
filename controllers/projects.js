@@ -5,6 +5,7 @@ var Project = require('../models/projects');
 var User = require('../models/users');
 var Comment = require('../models/comment');
 var Posts = require('../models/blog');
+var Info = require('../models/info');
 
 
 
@@ -64,9 +65,9 @@ var controller = {
             project.comments = params.comments;
             if (params.image) {
                 project.image = params.image;
-            }else if (project.image == null){
+            } else if (project.image == null) {
                 project.image = params.image;
-            }else{
+            } else {
                 project.image = params.image;
             }
 
@@ -138,7 +139,7 @@ var controller = {
         });
 
 
-    }, 
+    },
     getProjects: function (request, response) {
         var query = Project.find({});
 
@@ -358,7 +359,7 @@ var controller = {
             comment.email = params.email;
             comment.comment = params.comment;
 
-            comment.save(function(err, commentSave){
+            comment.save(function (err, commentSave) {
                 if (err || !commentSave) {
                     return response.status(404).send({
                         status: 'Error',
@@ -366,7 +367,7 @@ var controller = {
                     });
                 }
 
-                
+
 
                 var contentHTML = `
                 Hola ${comment.name}
@@ -395,8 +396,8 @@ var controller = {
                     },
                 });
                 try {
-                        transporter.verify();
-                        transporter.sendMail({
+                    transporter.verify();
+                    transporter.sendMail({
                         from: myEmail,
                         to: comment.email,
                         subject: 'Gracias por tu commentario!!!',
@@ -414,12 +415,12 @@ var controller = {
             });
         }
     },
-    getComments: function(request, response){
-        
+    getComments: function (request, response) {
+
 
         var query = Comment.find({})
         var last = request.params.last;
-        
+
         if (last || last != undefined) {
             query.limit(4);
         }
@@ -429,7 +430,7 @@ var controller = {
                     status: 'success',
                     comments
                 });
-            }else{
+            } else {
                 return response.status(404).send({
                     status: 'Error',
                     message: 'could not show comments',
@@ -464,7 +465,7 @@ var controller = {
             post.author = params.author;
             if (params.image) {
                 post.image = params.image;
-            }else{
+            } else {
                 post.image = null;
             }
             post.save((err, postSaved) => {
@@ -555,8 +556,8 @@ var controller = {
                     message: "The post with id : '" + postId + "', doesn't exist"
                 })
             }
-            cloudinary.v2.uploader.destroy(postDeleted.cloudinary_id, function(error,result) {
-                console.log(result, error) 
+            cloudinary.v2.uploader.destroy(postDeleted.cloudinary_id, function (error, result) {
+                console.log(result, error)
             });
             return response.status(200).send({
                 status: "success",
@@ -565,9 +566,29 @@ var controller = {
                 post: postDeleted
 
             })
-            
+
         })
     },
+
+
+    //My info
+
+    getInfo: (request, response) => {
+       
+        User.findById(_private._id, (err, user) => {
+            if (err || !user) {
+                return response.status(404).send({
+                    status: "Error",
+                    message: "The user doesn't exist"
+                })
+            }
+            return response.status(200).send({
+                status: "success",
+                user
+            });
+        });
+
+    }
 }
 
 

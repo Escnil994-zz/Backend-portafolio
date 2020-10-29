@@ -33,7 +33,7 @@ router.post('/new-post', project_controller.createnewPost);
 router.get('/get-posts/:last?', project_controller.getPosts);
 router.get('/get-post/:id', project_controller.getPost);
 router.delete('/delete-post/:id', project_controller.deletePost);
-
+router.get('/get-info', project_controller.getInfo);
 
 //Subiendo imagenes
 router.post('/upload-image/:id?', upload.single('image'), async (req, res) => {
