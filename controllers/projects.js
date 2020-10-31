@@ -141,7 +141,7 @@ var controller = {
 
     },
     getProjects: function (request, response) {
-        var query = Project.find({});
+        var query = Project.find({}).sort('-date');
 
         var last = request.params.last;
         if (last || last != undefined) {
@@ -191,7 +191,7 @@ var controller = {
                     project
                 })
             }
-        });
+        }).sort('-date');
     },
     deleteProject: function (request, response) {
         var projectId = request.params.id;
@@ -418,7 +418,7 @@ var controller = {
     getComments: function (request, response) {
 
 
-        var query = Comment.find({})
+        var query = Comment.find({}).sort('-date')
         var last = request.params.last;
 
         if (last || last != undefined) {
@@ -490,7 +490,7 @@ var controller = {
 
     },
     getPosts: function (request, response) {
-        var query = Posts.find({});
+        var query = Posts.find({}).sort('-date');
 
         var last = request.params.last;
         if (last || last != undefined) {
@@ -556,9 +556,7 @@ var controller = {
                     message: "The post with id : '" + postId + "', doesn't exist"
                 })
             }
-            cloudinary.v2.uploader.destroy(postDeleted.cloudinary_id, function (error, result) {
-                console.log(result, error)
-            });
+          
             return response.status(200).send({
                 status: "success",
                 message: "Post: '" + postId + "', has been removed",
