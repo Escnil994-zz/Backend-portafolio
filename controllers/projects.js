@@ -145,7 +145,7 @@ var controller = {
 
         var last = request.params.last;
         if (last || last != undefined) {
-            query.limit(1);
+            query.limit(2);
         }
         query.exec((err, projects) => {
 
