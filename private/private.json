@@ -1,29 +1,14 @@
 {
-    "db_connection": "mongodb+srv://escnil994:27431@portfolio.c2h8y.mongodb.net/portafolio?retryWrites=true&w=majority",
-
-    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCXcwZ2f/KuazUc\njNOjHl1GWtwSjIlQY6v0x5r/pvG+QH7O1A1BLee3Jodrhz3pT5YRCNPdIzIUhS8m\nAL5MF1ToOMD0EoLXdGh4PEKlASYUgTvdzgDla6hxveRxjW7cKkx8El7RHPHKGkZW\ngeo1NG4tQmhQ4gzCvB4CYkREcpafIETdStpWCgXBP8UzDsF7PSc+KoC6V9tQ2JId\nt4St/IrVuYg9Jwr0sH88/nQ/DvsoG4k655cajzn0CDT4JnS0TZsMegJcVFtpS5sh\no1ncj+7b2S/RJzGPonZ+69KcgemUFYWcyDMTLrnLwvpa7jb5otDIBZRxQRpjIbpg\n2yE3/8u9AgMBAAECggEAAJJMKAOKoQwWGxsKqPHjulmfAtT/hEiGi3hX/BbWnEam\nWDXE8yAgg6Q0SDO/yDdYgTtcC6oBLPyCq1SQbuYduvjeNykxuIRFjAJrHGoliTT0\nFlrKB9loQwOcztA/Sa8p/pVnb1M/7jo7YZP1JZUFivRQZlGNItIow3dP3lDjYEsy\ndJvfAKRwyJZSXRUd0fBRgeFrumQwsoObeUNfOdaFP4zRV8Y9McH9ANB32Orj2CTq\nzChg3RRQYfchwDksQuVefFSV6UhxF4T4kqoNq7q0dDexIPhjtLJmWsxguoSNjbUg\ne9aDzt7w4it7FnpA5OOor6P0i6rjotvgsdJBONLuMQKBgQDVPaqPprI75iF3xWrp\nG9X5w6dy6I179jh7nluRZ+FUCUX7eufMSm29j+xfYQ8R+5MEL2v/6Bw7ubq4RNN4\nlebLZMojq09Y2fpGDxfODlL1ZP3VTItvzIKGE6Dt9ZQMbVuIGjrgcauCBeVaolYZ\nf8biX14bg1Lx5QrDApEerAm/sQKBgQC10WatA9FQGOLUVqysuDFVILZTNSL0ckjE\nc20K17JVneqvXbl0Q3IhDFCpTSHHHj2HM9CMiTLTluoYjcJtAHUk5kQrtu+Wrjbo\n5THpz2bsCjjASy7a6uThIgv6GW1a0rBJihUKnVlny4L3Kvu4oa7SdFGL6AuhGF32\nkvjR1Zu7zQKBgQCVt8xPO90cTUHmVAfyT4b27DZfaYQdKw0RTmhAOU1tsW0fWnXx\na7iNRcXSWdU47QeWAq2zaYaZMJg21KwdmDIJUGTUkm0Nl04vbl1qYYhBn3zRDANC\npbZm6NUu/iPKbeW8M55vA6BFlFoqPpxxHtPHEOqEKrpL+GKL9PtrK6NUoQKBgDKw\nWX68xLse5QYrz+IrS92ezBXwh3k871qNj4XpUpeZ+ha/+3cVYpkiFM7OaS9ZF/A8\nmtTDXz8sIMGNq/m1mfMam0DQtIT+tuJBG6RCpUADLYU2sK5ptDurwUkNk7YxbOJj\ns7AM5CMS0sVT32++671SnnVx0OQtpeybVvExK0S1AoGAayc5RtOOXuZ6STW7l0yb\n2v0R/WSl5MNiaV6g8WxGjT7VImXKxnAedfxZPhwkb2MAGrJZob+mHVBAXGhiE1LW\niPYrOlN9USsCvwGCrvUUaHyHt/bfoobnsLQT2fHp9Ay3DWvd13bCcZnw9pIi6sGB\ngDXFxcyrqxQOvMJkwoYIRsk=\n-----END PRIVATE KEY-----\n",
-
-    "client_id": "105090155666377381519",
-
-    "my_email": "nilsonescobar@escnil994.com",
-
-    "fb": "https://facebook.com/escnil994",
-
-    "whats": "https://wa.me/50322973347/",
-
-    "my_name": "Nilson Escobar @Escnil994",
-
-    "cloudinary_name": "escnil994",
-    "cloudinary_api_key": "547594663488456",
-    "cloudinary_secret_key": "lBn1Gd-70BM8tRgrKjVU49aUvwo",
-
-    "word_token": "ESCNIL994",
-
-
-    "_id":"5f9a6d14add9c6b5f9d48ebd"
-
-
-
-
-
+  "db_connection": "mongodb+srv://escnil994:27431@portfolio.c2h8y.mongodb.net/portafolio?retryWrites=true&w=majority",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCXcwZ2f/KuazUc\njNOjHl1GWtwSjIlQY6v0x5r/pvG+QH7O1A1BLee3Jodrhz3pT5YRCNPdIzIUhS8m\nAL5MF1ToOMD0EoLXdGh4PEKlASYUgTvdzgDla6hxveRxjW7cKkx8El7RHPHKGkZW\ngeo1NG4tQmhQ4gzCvB4CYkREcpafIETdStpWCgXBP8UzDsF7PSc+KoC6V9tQ2JId\nt4St/IrVuYg9Jwr0sH88/nQ/DvsoG4k655cajzn0CDT4JnS0TZsMegJcVFtpS5sh\no1ncj+7b2S/RJzGPonZ+69KcgemUFYWcyDMTLrnLwvpa7jb5otDIBZRxQRpjIbpg\n2yE3/8u9AgMBAAECggEAAJJMKAOKoQwWGxsKqPHjulmfAtT/hEiGi3hX/BbWnEam\nWDXE8yAgg6Q0SDO/yDdYgTtcC6oBLPyCq1SQbuYduvjeNykxuIRFjAJrHGoliTT0\nFlrKB9loQwOcztA/Sa8p/pVnb1M/7jo7YZP1JZUFivRQZlGNItIow3dP3lDjYEsy\ndJvfAKRwyJZSXRUd0fBRgeFrumQwsoObeUNfOdaFP4zRV8Y9McH9ANB32Orj2CTq\nzChg3RRQYfchwDksQuVefFSV6UhxF4T4kqoNq7q0dDexIPhjtLJmWsxguoSNjbUg\ne9aDzt7w4it7FnpA5OOor6P0i6rjotvgsdJBONLuMQKBgQDVPaqPprI75iF3xWrp\nG9X5w6dy6I179jh7nluRZ+FUCUX7eufMSm29j+xfYQ8R+5MEL2v/6Bw7ubq4RNN4\nlebLZMojq09Y2fpGDxfODlL1ZP3VTItvzIKGE6Dt9ZQMbVuIGjrgcauCBeVaolYZ\nf8biX14bg1Lx5QrDApEerAm/sQKBgQC10WatA9FQGOLUVqysuDFVILZTNSL0ckjE\nc20K17JVneqvXbl0Q3IhDFCpTSHHHj2HM9CMiTLTluoYjcJtAHUk5kQrtu+Wrjbo\n5THpz2bsCjjASy7a6uThIgv6GW1a0rBJihUKnVlny4L3Kvu4oa7SdFGL6AuhGF32\nkvjR1Zu7zQKBgQCVt8xPO90cTUHmVAfyT4b27DZfaYQdKw0RTmhAOU1tsW0fWnXx\na7iNRcXSWdU47QeWAq2zaYaZMJg21KwdmDIJUGTUkm0Nl04vbl1qYYhBn3zRDANC\npbZm6NUu/iPKbeW8M55vA6BFlFoqPpxxHtPHEOqEKrpL+GKL9PtrK6NUoQKBgDKw\nWX68xLse5QYrz+IrS92ezBXwh3k871qNj4XpUpeZ+ha/+3cVYpkiFM7OaS9ZF/A8\nmtTDXz8sIMGNq/m1mfMam0DQtIT+tuJBG6RCpUADLYU2sK5ptDurwUkNk7YxbOJj\ns7AM5CMS0sVT32++671SnnVx0OQtpeybVvExK0S1AoGAayc5RtOOXuZ6STW7l0yb\n2v0R/WSl5MNiaV6g8WxGjT7VImXKxnAedfxZPhwkb2MAGrJZob+mHVBAXGhiE1LW\niPYrOlN9USsCvwGCrvUUaHyHt/bfoobnsLQT2fHp9Ay3DWvd13bCcZnw9pIi6sGB\ngDXFxcyrqxQOvMJkwoYIRsk=\n-----END PRIVATE KEY-----\n",
+  "client_id": "105090155666377381519",
+  "my_email": "nilsonescobar@escnil994.com",
+  "fb": "https://facebook.com/escnil994",
+  "whats": "https://wa.me/50322973347/",
+  "my_name": "Nilson Escobar @Escnil994",
+  "cloudinary_name": "escnil994",
+  "cloudinary_api_key": "547594663488456",
+  "cloudinary_secret_key": "lBn1Gd-70BM8tRgrKjVU49aUvwo",
+  "word_token": "ESCNIL994",
+  "_id": "5f9a6d14add9c6b5f9d48ebd"
 }

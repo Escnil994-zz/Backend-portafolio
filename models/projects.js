@@ -11,7 +11,7 @@ var project_schema = schema({
     type: String,
     url: String,
     comments: String,
-    date: { type: Date, default: Date.now},
+    date: {type: Date, default: Date.now},
     image: String,
     cloudinary_id: String
 });

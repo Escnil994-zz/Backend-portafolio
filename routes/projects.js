@@ -2,7 +2,7 @@
 
 var express = require('express');
 
-var router =express.Router();
+var router = express.Router();
 
 var Project = require('../models/projects');
 var Post = require('../models/blog')
@@ -44,7 +44,10 @@ router.post('/upload-image/:id?', upload.single('image'), async (req, res) => {
         const result = await cloudinary.uploader.upload(req.file.path);
         //Save user
         if (projectId) {
-            Project.findOneAndUpdate({ _id: projectId }, { image: result.secure_url, cloudinary_id: result.public_id }, { new: true }, (err, projectUpdated) => {
+            Project.findOneAndUpdate({_id: projectId}, {
+                image: result.secure_url,
+                cloudinary_id: result.public_id
+            }, {new: true}, (err, projectUpdated) => {
                 if (err || !projectUpdated) {
                     return res.status(404).send({
                         status: 'error',
@@ -56,7 +59,7 @@ router.post('/upload-image/:id?', upload.single('image'), async (req, res) => {
                     project: projectUpdated
                 });
             });
-    
+
         } else {
             return res.status(200).send({
                 status: 'success',
@@ -64,10 +67,9 @@ router.post('/upload-image/:id?', upload.single('image'), async (req, res) => {
             })
         }
 
-     } catch (error) {
-         console.log(error);
-     }
-    
+    } catch (error) {
+        console.log(error);
+    }
 
 
 });
@@ -79,7 +81,10 @@ router.post('/upload-image-post/:id?', upload.single('image'), async (req, res) 
         const result = await cloudinary.uploader.upload(req.file.path);
         //Save user
         if (postId) {
-            Post.findOneAndUpdate({ _id: postId }, { image: result.secure_url, cloudinary_id: result.public_id }, { new: true }, (err, postUpdated) => {
+            Post.findOneAndUpdate({_id: postId}, {
+                image: result.secure_url,
+                cloudinary_id: result.public_id
+            }, {new: true}, (err, postUpdated) => {
                 if (err || !postUpdated) {
                     return res.status(404).send({
                         status: 'error',
@@ -91,7 +96,7 @@ router.post('/upload-image-post/:id?', upload.single('image'), async (req, res) 
                     post: postUpdated
                 });
             });
-    
+
         } else {
             return res.status(200).send({
                 status: 'success',
@@ -99,17 +104,12 @@ router.post('/upload-image-post/:id?', upload.single('image'), async (req, res) 
             })
         }
 
-     } catch (error) {
-         console.log(error);
-     }
-    
+    } catch (error) {
+        console.log(error);
+    }
 
 
 });
-
-
-
-
 
 
 module.exports = router;

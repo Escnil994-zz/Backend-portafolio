@@ -11,7 +11,7 @@ var blog_schema = schema({
     more: String,
     author: String,
     body: String,
-    date: { type: Date, default: Date.now},
+    date: {type: Date, default: Date.now},
     image: String,
     cloudinary_id: String
 });

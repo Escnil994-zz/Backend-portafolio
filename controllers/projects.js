@@ -8,7 +8,6 @@ var Posts = require('../models/blog');
 var Info = require('../models/info');
 
 
-
 //Send Email
 const _private = require('../private/private.json')
 const nodemailer = require('nodemailer');
@@ -25,13 +24,12 @@ const wordToken = _private.word_token;
 const cloudinary = require('../utils/cloudinary');
 
 
-
 var fs = require('fs');
 var path = require('path');
-const { exists, update } = require('../models/projects');
-const { user_exists, user_update } = require('../models/users');
-const { restart } = require('nodemon');
-const { request, response } = require('express');
+const {exists, update} = require('../models/projects');
+const {user_exists, user_update} = require('../models/users');
+const {restart} = require('nodemon');
+const {request, response} = require('express');
 
 var controller = {
     createNewProject: function (request, response) {
@@ -195,7 +193,7 @@ var controller = {
     },
     deleteProject: function (request, response) {
         var projectId = request.params.id;
-        Project.findByIdAndDelete({ _id: projectId }, function (err, projectDeleted) {
+        Project.findByIdAndDelete({_id: projectId}, function (err, projectDeleted) {
             if (err) {
                 return response.status(500).send({
                     status: "Error!!!",
@@ -239,7 +237,7 @@ var controller = {
         if (validate_title && validate_description && validate_video && validate_type && validate_url) {
 
             //Find and update
-            Project.findByIdAndUpdate({ _id: projectId }, params, { new: true }, function (err, projectUpdated) {
+            Project.findByIdAndUpdate({_id: projectId}, params, {new: true}, function (err, projectUpdated) {
 
                 if (err) {
                     return response.status(200).send({
@@ -269,8 +267,8 @@ var controller = {
 
         Project.find({
             "$or": [
-                { "title": { "$regex": search, "$options": "i" } },
-                { "content": { "$regex": search, "$options": "i" } }
+                {"title": {"$regex": search, "$options": "i"}},
+                {"content": {"$regex": search, "$options": "i"}}
             ]
         }).sort([['date', 'descending']]).exec((err, projects) => {
             if (err) {
@@ -292,8 +290,8 @@ var controller = {
         });
     },
     singIng: async (request, response) => {
-        const { email, password } = request.body;
-        const user = await User.findOne({ email })
+        const {email, password} = request.body;
+        const user = await User.findOne({email})
         if (!user) {
             return response.status(401).send("The email doesn't exist")
         }
@@ -301,19 +299,19 @@ var controller = {
             return response.status(401).send("Wrong password!!!")
         }
 
-        const token = jwt.sign({ _id: user._id }, wordToken)
+        const token = jwt.sign({_id: user._id}, wordToken)
         return response.status(200).send({
             token
         })
     },
 
     singUp: async (request, response) => {
-        const { name, email, password, avatar } = request.body;
-        const newUser = new User({ name, email, password, avatar });
+        const {name, email, password, avatar} = request.body;
+        const newUser = new User({name, email, password, avatar});
         await newUser.save();
 
-        const token = jwt.sign({ _id: newUser._id }, wordToken)
-        response.status(200).json({ token });
+        const token = jwt.sign({_id: newUser._id}, wordToken)
+        response.status(200).json({token});
     },
     veryfyToken: (request, response, next) => {
         if (!request.headers.authorization) {
@@ -368,21 +366,36 @@ var controller = {
                 }
 
 
-
                 var contentHTML = `
-                Hola ${comment.name}
-                Gracias por tu comentario
-                "${comment.comment}"
-
-                Si tienes dudas, sugerencias, o necesitas contactarme, aqui te dejo algunos medios.
-                ${whats}
-                ${fb}
-                puedes encontrar mas en mi web en la pestaña "contactame"
-                
-                Tambien puedes responder directamente a este correo
-                
-                
-                Att. ${myName}
+                <div style="width: auto; color: black; margin: 20px; text-align: center; font-family: Arial, Helvetica, sans-serif; font-weight: bold; background-color: rgb(196, 244, 250);">
+                    <h1>${comment.name}</h1>
+                    <h4>Gracias por tu comentario</h4>
+            
+                    <span style="color:green;">"${comment.comment}"</span>
+            
+            
+                    <br>
+                    <br>
+                    <span>Si tienes dudas, sugerencias, o necesitas contactarme, aqui te dejo algunos
+                        medios.</span>
+            
+                    <br><br>
+                    <a href="${whats}" style="color: green;"><strong>Whatsapp</strong></a>
+                    <br><br>
+                    <a href="${fb}" style="color: blue;"><strong>facebook</strong></a>
+            
+                    <p> puedes encontrar mas en mi web en la pestaña
+                        <strong>
+                            <a href="https://escnil994.com/contacts">contactame</a>
+                        </strong></p>
+            
+                    <span> Tambien puedes responder directamente a este correo</span>
+            
+                    <br>
+                    <br><br>
+            
+                    <span style="color:#002a4a; font-size: 25px;"> Att. ${myName}</span>
+                </div>
                 `;
                 const transporter = nodemailer.createTransport({
                     host: 'smtp.gmail.com',
@@ -401,10 +414,9 @@ var controller = {
                         from: myEmail,
                         to: comment.email,
                         subject: 'Gracias por tu commentario!!!',
-                        text: contentHTML
+                        html: contentHTML
                     });
-                }
-                catch (err) {
+                } catch (err) {
                     console.log(err);
                 }
 
@@ -543,7 +555,7 @@ var controller = {
     },
     deletePost: function (request, response) {
         var postId = request.params.id;
-        Posts.findByIdAndDelete({ _id: postId }, function (err, postDeleted) {
+        Posts.findByIdAndDelete({_id: postId}, function (err, postDeleted) {
             if (err) {
                 return response.status(500).send({
                     status: "Error!!!",
@@ -556,7 +568,7 @@ var controller = {
                     message: "The post with id : '" + postId + "', doesn't exist"
                 })
             }
-          
+
             return response.status(200).send({
                 status: "success",
                 message: "Post: '" + postId + "', has been removed",
@@ -572,7 +584,7 @@ var controller = {
     //My info
 
     getInfo: (request, response) => {
-       
+
         User.findById(_private._id, (err, user) => {
             if (err || !user) {
                 return response.status(404).send({
@@ -588,7 +600,6 @@ var controller = {
 
     }
 }
-
 
 
 module.exports = controller;

@@ -14,7 +14,7 @@ mongoose.Promise = global.Promise;
 
 const uriDB = _private.db_connection;
 
-mongoose.connect(uriDB, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uriDB, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(function () {
         console.log('Database is connected!!!')
 
