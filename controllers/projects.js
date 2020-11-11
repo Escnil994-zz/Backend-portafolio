@@ -450,6 +450,31 @@ var controller = {
             }
         })
     },
+    deleteComent: (request, response) => {
+        var commentId = request.params.id;
+        Comment.findByIdAndDelete({_id: commentId}, function (err, CommentDeleted) {
+            if (err) {
+                return response.status(500).send({
+                    status: "Error!!!",
+                    message: "Couldn't delete"
+                });
+            }
+            if (!CommentDeleted) {
+                return response.status(404).send({
+                    status: "Error",
+                    message: "The project with id : '" + commentId + "', doesn't exist"
+                })
+            }
+            return response.status(200).send({
+                status: "success",
+                message: "Project: '" + commentId + "', has been removed",
+                see: "bellow you can see it...",
+                comment: CommentDeleted
+
+            })
+        })
+
+    },
     createnewPost: function (request, response) {
         //get post's params
         var params = request.body;

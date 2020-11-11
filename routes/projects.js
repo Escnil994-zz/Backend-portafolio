@@ -8,11 +8,11 @@ var Project = require('../models/projects');
 var Post = require('../models/blog')
 
 var project_controller = require('../controllers/projects');
+const Users = require('../auth/auth.controller');
+
 
 var multiparty = require('connect-multiparty');
 
-var projects_images = multiparty({uploadDir: './files/projects-images'});
-var posts_images = multiparty({uploadDir: './files/posts_images'});
 
 const cloudinary = require('../utils/cloudinary');
 const upload = require('../utils/multer');
@@ -29,6 +29,7 @@ router.post('/signin', project_controller.singIng);
 router.post('/signup', project_controller.singUp);
 router.post('/new-comment', project_controller.newComment);
 router.get('/comments/:last?', project_controller.getComments);
+router.delete('/delete-comment/:id', project_controller.deleteComent);
 router.post('/new-post', project_controller.createnewPost);
 router.get('/get-posts/:last?', project_controller.getPosts);
 router.get('/get-post/:id', project_controller.getPost);
@@ -111,5 +112,7 @@ router.post('/upload-image-post/:id?', upload.single('image'), async (req, res) 
 
 });
 
+router.post('/register', Users.createUser);
+router.post('/login', Users.loginUser);
 
 module.exports = router;
