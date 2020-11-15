@@ -62,7 +62,7 @@ router.post('/upload-image/:id?', upload.single('file0'), async (req, res) => {
         } else {
             return res.status(200).send({
                 status: 'success',
-                image: file_name
+                image: result.secure_url
             })
         }
 
