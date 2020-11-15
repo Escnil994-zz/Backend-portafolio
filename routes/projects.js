@@ -25,8 +25,6 @@ router.put('/update-project/:id', project_controller.updateProject);
 router.get('/search/:search', project_controller.searchProject);
 router.get('/get-user', project_controller.getUsers)
 router.get('/user/:id', project_controller.getUser);
-router.post('/signin', project_controller.singIng);
-router.post('/signup', project_controller.singUp);
 router.post('/new-comment', project_controller.newComment);
 router.get('/comments/:last?', project_controller.getComments);
 router.delete('/delete-comment/:id', project_controller.deleteComent);
@@ -37,7 +35,7 @@ router.delete('/delete-post/:id', project_controller.deletePost);
 router.get('/get-info', project_controller.getInfo);
 
 //Subiendo imagenes
-router.post('/upload-image/:id?', upload.single('image'), async (req, res) => {
+router.post('/upload-image/:id?', upload.single('file0'), async (req, res) => {
 
     var projectId = req.params.id;
 
@@ -75,7 +73,7 @@ router.post('/upload-image/:id?', upload.single('image'), async (req, res) => {
 
 });
 
-router.post('/upload-image-post/:id?', upload.single('image'), async (req, res) => {
+router.post('/upload-image-post/:id?', upload.single('file0'), async (req, res) => {
     var postId = req.params.id;
 
     try {
@@ -101,7 +99,7 @@ router.post('/upload-image-post/:id?', upload.single('image'), async (req, res) 
         } else {
             return res.status(200).send({
                 status: 'success',
-                image: file_name
+                image: result.secure_url
             })
         }
 

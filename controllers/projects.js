@@ -18,8 +18,6 @@ const myName = _private.my_name;
 const client_id = _private.client_id;
 const private_key = _private.private_key;
 
-var jwt = require('jsonwebtoken');
-const wordToken = _private.word_token;
 
 const cloudinary = require('../utils/cloudinary');
 
@@ -289,54 +287,6 @@ var controller = {
             })
         });
     },
-    singIng: async (request, response) => {
-        const {email, password} = request.body;
-        const user = await User.findOne({email})
-        if (!user) {
-            return response.status(401).send("The email doesn't exist")
-        }
-        if (user.password !== password) {
-            return response.status(401).send("Wrong password!!!")
-        }
-
-        const token = jwt.sign({_id: user._id}, wordToken)
-        return response.status(200).send({
-            token
-        })
-    },
-
-    singUp: async (request, response) => {
-        const {name, email, password, avatar} = request.body;
-        const newUser = new User({name, email, password, avatar});
-        await newUser.save();
-
-        const token = jwt.sign({_id: newUser._id}, wordToken)
-        response.status(200).json({token});
-    },
-    veryfyToken: (request, response, next) => {
-        if (!request.headers.authorization) {
-            return response.status(401).send({
-                status: "Error",
-                message: 'Authorization Denied!!!'
-            })
-        }
-        const token = request.headers.authorization.split(' ')[1];
-
-        if (token === null) {
-            return response.status(401).send({
-                status: "Error",
-                message: 'Authorization Denied!!!'
-            })
-        }
-
-        const payload = jwt.verify(token, wordToken);
-
-        console.log(payload)
-
-        request.userId = payload._id;
-        next();
-    },
-
     newComment: function (request, response) {
         var params = request.body;
 
