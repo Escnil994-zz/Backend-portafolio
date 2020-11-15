@@ -35,7 +35,7 @@ router.delete('/delete-post/:id', project_controller.deletePost);
 router.get('/get-info', project_controller.getInfo);
 
 //Subiendo imagenes
-router.post('/upload-image/:id?', upload.single('file0'), async (req, res) => {
+router.post('/upload-image-project/:id?', upload.single('file0'), async (req, res) => {
 
     var projectId = req.params.id;
 
