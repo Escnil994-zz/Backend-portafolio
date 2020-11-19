@@ -23,7 +23,6 @@ router.get('/get-project/:id', project_controller.getProject);
 router.delete('/delete-project/:id', project_controller.deleteProject);
 router.put('/update-project/:id', project_controller.updateProject);
 router.get('/search/:search', project_controller.searchProject);
-router.get('/get-user', project_controller.getUsers)
 router.get('/user/:id', project_controller.getUser);
 router.post('/new-comment', project_controller.newComment);
 router.get('/comments/:last?', project_controller.getComments);
@@ -110,6 +109,8 @@ router.post('/upload-image-post/:id?', upload.single('file0'), async (req, res) 
 
 });
 
+
+//Sin-In
 router.post('/register', Users.createUser);
 router.post('/login', Users.loginUser);
 
