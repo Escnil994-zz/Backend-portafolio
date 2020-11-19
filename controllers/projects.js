@@ -204,6 +204,9 @@ var controller = {
                     message: "The project with id : '" + projectId + "', doesn't exist"
                 })
             }
+
+            cloudinary.uploader.destroy(projectDeleted.cloudinary_id);
+
             return response.status(200).send({
                 status: "success",
                 message: "Project: '" + projectId + "', has been removed",
@@ -544,13 +547,15 @@ var controller = {
                 })
             }
 
+            cloudinary.uploader.destroy(postDeleted.cloudinary_id);
+
             return response.status(200).send({
                 status: "success",
                 message: "Post: '" + postId + "', has been removed",
                 see: "bellow you can see it...",
                 post: postDeleted
 
-            })
+            });
 
         })
     },
